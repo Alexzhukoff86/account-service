@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "account-service"
+version = "0.1.0"
+description = ""
+authors = ["oleksandr.zhukov <oleksandr.zhukov@alertinnovation.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+#grpcio_tools = "1.33.2"
+#grpcio-reflection = "1.33.2"
+#Flask-SQLAlchemy = "3.0.3"
+books-shared = { git = "https://github.com/Alexzhukoff86/book-shared.git", branch="mainline" }
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
