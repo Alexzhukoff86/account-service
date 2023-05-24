@@ -5,5 +5,5 @@ from servers.server import server
 
 if __name__ == '__main__':
     logger.info("Start server ACCOUNT")
-    create_app('ACCOUNT')
+    create_app()
     server()
