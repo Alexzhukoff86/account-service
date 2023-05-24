@@ -1,6 +1,6 @@
 FROM python:3.8
 WORKDIR /account_service
-COPY . .
+COPY /account-service .
 ENV ACCOUNT=accountConf.cfg
 ENV ACCOUNT_SERVICE=localhost
 ENV ACCOUNT_SERVICE_PORT=50051
