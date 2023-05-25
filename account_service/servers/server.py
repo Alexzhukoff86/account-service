@@ -22,8 +22,8 @@ def server():
         reflection.SERVICE_NAME,
     )
     reflection.enable_server_reflection(names, server)
-    server.add_insecure_port(f"{Config.account_server}:{Config.account_server_port}")
-    logger.info(f"Start server on {Config.account_server}:{Config.account_server_port}")
+    server.add_insecure_port(f"[::]:{Config.account_server_port}")
+    logger.info(f"Start server on [::]:{Config.account_server_port}")
     server.start()
     server.wait_for_termination()
 
