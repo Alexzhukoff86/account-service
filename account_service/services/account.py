@@ -28,3 +28,10 @@ class AccountService(rpc.AccountServiceServicer):
             account_sql.save_to_db()
             logger.info(f"Account {account_sql.id}")
         return pb.CreateAccountResponse(id=account_sql.id)
+
+    def GetAccountList(self, request, context):
+        logger.info(f"Get account list request {request}")
+        with app.app_context():
+            accounts_sql = AccountModel.find_all()
+            logger.info(f"Retrieved {len(accounts_sql)} accounts")
+        return pb.GetAccountListResponse(accounts=[AccountMapping.sql_to_proto(account) for account in accounts_sql])

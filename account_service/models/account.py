@@ -24,10 +24,18 @@ class AccountModel(db.Model):
         logger.info(f"Find by email {email}")
         return cls.query.filter_by(email=email).first()
 
+    @classmethod
+    def find_all(cls):
+        logger.info("Find all accounts")
+        return cls.query.all()
+
     def save_to_db(self):
         logger.info(f"Save Account {self} to db")
         db.session.add(self)
         db.session.commit()
 
     def __repr__(self):
+        return f"Account: name {self.name} email{self.email}"
+
+    def __str__(self):
         return f"Account: name {self.name} email{self.email}"
