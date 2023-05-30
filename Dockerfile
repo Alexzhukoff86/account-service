@@ -6,4 +6,4 @@ RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
 EXPOSE 50051
-ENTRYPOINT ["python", "account_service/run.py"]
+#ENTRYPOINT ["python", "account_service/run.py"]
