@@ -1,4 +1,4 @@
-FROM python:3.8.0
+FROM python:3.8.16
 WORKDIR /account_service
 COPY /account-service .
 ENV PYTHONPATH /account_service
