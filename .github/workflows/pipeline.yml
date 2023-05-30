@@ -40,7 +40,7 @@ jobs:
       - name: Run unittests
         run: |
           docker run -e SQLALCHEMY_DATABASE_URI='sqlite:///test.db' ${{ env.TEST_TAG }} pytest tests
-          docker rm -rf ${{ env.TEST_TAG }}
+          docker run --rm ${{ env.TEST_TAG }}
           
       - name: Build and push
         uses: docker/build-push-action@v4
