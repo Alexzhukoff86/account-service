@@ -4,7 +4,6 @@ import grpc
 
 from grpc_reflection.v1alpha import reflection
 
-
 import books_shared.protopy.account_pb2 as pb
 import books_shared.protopy.account_pb2_grpc as rpc
 from account_service.services.account import AccountService
@@ -26,7 +25,3 @@ def server():
     logger.info(f"Start server on [::]:{Config.account_server_port}")
     server.start()
     server.wait_for_termination()
-
-
-if __name__ == '__main__':
-    server()
