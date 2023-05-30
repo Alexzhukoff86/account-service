@@ -21,7 +21,6 @@ class BaseTest(TestCase):
         with app.app_context():
             db.init_app(app)
 
-
     def setUp(self):
         # Make sure database exists
         with app.app_context():

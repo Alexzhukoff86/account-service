@@ -34,6 +34,11 @@ class AccountModel(db.Model):
         db.session.add(self)
         db.session.commit()
 
+    def delete(self):
+        logger.info(f"Remove account")
+        db.session.delete(self)
+        db.session.commit()
+
     def __repr__(self):
         return f"Account: name {self.name} email{self.email}"
 
