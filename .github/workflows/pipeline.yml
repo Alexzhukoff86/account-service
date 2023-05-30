@@ -39,7 +39,7 @@ jobs:
 
       - name: Run unittests
         run: |
-          docker run pytest tests
+          docker run account-service:${{ env.TEST_TAG }} pytest tests
           docker rm -rf ${{ env.TEST_TAG }}
           
       - name: Build and push
