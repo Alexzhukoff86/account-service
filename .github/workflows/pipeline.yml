@@ -43,7 +43,7 @@ jobs:
 
       - name: Setup server
         run: |
-          docker run -e SQLALCHEMY_DATABASE_URI='sqlite:///account.db' ${{ env.TEST_TAG }} python account_service/run.py
+          docker run -e SQLALCHEMY_DATABASE_URI='sqlite:///account.db' -e ACCOUNT_SERVICE_PORT=50051 ${{ env.TEST_TAG }} python account_service/run.py
 
       - name: Build and push
         uses: docker/build-push-action@v4
