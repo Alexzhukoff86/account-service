@@ -25,10 +25,21 @@ class AccountService(rpc.AccountServiceServicer):
                 context.abort(grpc.StatusCode.ALREADY_EXISTS, "Account already exists")
             account_sql = AccountModel(name=request.name, email=request.email)
             account_sql.save_to_db()
-        return pb.CreateAccountResponse(id=account_sql.id)
+            id = account_sql.id
+        return pb.CreateAccountResponse(id=id)
 
     def GetAccountList(self, request, context):
         logger.info(f"Get account list request {request}")
         with app.app_context():
             accounts_sql = AccountModel.find_all()
         return pb.GetAccountListResponse(accounts=[AccountMapping.sql_to_proto(account) for account in accounts_sql])
+
+    def DeleteAllAccounts(self, request, context):
+        logger.info(f"Remove all accounts")
+        with app.app_context():
+            accounts = AccountModel.find_all()
+            for account in accounts:
+                account.delete()
+        from books_shared.protopy.account_pb2 import google_dot_protobuf_dot_empty__pb2
+        empty = google_dot_protobuf_dot_empty__pb2.Empty()
+        return empty

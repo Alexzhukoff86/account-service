@@ -9,7 +9,7 @@ fake = Faker()
 
 
 def migrate():
-    for i in range(100):
+    for i in range(10):
         logger.info(f"Migrate test users")
         first_name = fake.unique.first_name()
         last_name = fake.unique.last_name()
